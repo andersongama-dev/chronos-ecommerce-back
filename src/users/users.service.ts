@@ -8,20 +8,26 @@ export class UsersService {
   constructor(private prisma: PrismaService) { }
 
 
-  async create(createUserDto: CreateUserDto) {
+  /*async create(createUserDto: CreateUserDto) {
     const user = await this.prisma.user.create({
       data: createUserDto,
     });
 
+    const user = createUserDto
+
+    user.password = "SenhaCrip"
+
     return user;
   }
 
-  findAll() {
-    return `This action returns all users`;
-  }
+  */
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  /* findAll() {
+    return `This action returns all users`;
+  } */
+
+  findOne(id: number, email: string) {
+    return `This action returns a #${id} user ${email}`;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
