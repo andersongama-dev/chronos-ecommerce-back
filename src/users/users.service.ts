@@ -22,7 +22,7 @@ export class UsersService {
    * @throws NotFoundException if the user does not exist
    */
   async getProfile(id: number): Promise<UserResponse> {
-    const user = await this.prisma.users.findUnique({
+    const user = await this.prisma.user.findUnique({
       where: { id },
       select: { name: true, email: true },
     });
@@ -48,7 +48,7 @@ export class UsersService {
 
     // Check for email conflict
     if (email) {
-      const existingUser = await this.prisma.users.findUnique({
+      const existingUser = await this.prisma.user.findUnique({
         where: { email },
         select: { id: true },
       });
@@ -59,7 +59,7 @@ export class UsersService {
     }
 
     try {
-      const updatedUser = await this.prisma.users.update({
+      const updatedUser = await this.prisma.user.update({
         where: { id },
         data: {
           ...(name && { name }),
@@ -82,7 +82,7 @@ export class UsersService {
    */
   async remove(id: number): Promise<void> {
     try {
-      await this.prisma.users.delete({
+      await this.prisma.user.delete({
         where: { id },
       });
     } catch (error) {
