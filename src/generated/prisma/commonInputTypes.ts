@@ -74,6 +74,143 @@ export type StringWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedStringFilter<$PrismaModel>
 }
 
+export type EnumBrandFilter<$PrismaModel = never> = {
+  equals?: $Enums.Brand | Prisma.EnumBrandFieldRefInput<$PrismaModel>
+  in?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBrandFilter<$PrismaModel> | $Enums.Brand
+}
+
+export type DecimalFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type EnumGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
+}
+
+export type EnumStyleFilter<$PrismaModel = never> = {
+  equals?: $Enums.Style | Prisma.EnumStyleFieldRefInput<$PrismaModel>
+  in?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStyleFilter<$PrismaModel> | $Enums.Style
+}
+
+export type EnumMaterialFilter<$PrismaModel = never> = {
+  equals?: $Enums.Material | Prisma.EnumMaterialFieldRefInput<$PrismaModel>
+  in?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMaterialFilter<$PrismaModel> | $Enums.Material
+}
+
+export type EnumColorFilter<$PrismaModel = never> = {
+  equals?: $Enums.Color | Prisma.EnumColorFieldRefInput<$PrismaModel>
+  in?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumColorFilter<$PrismaModel> | $Enums.Color
+}
+
+export type DateTimeFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
+}
+
+export type EnumBrandWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Brand | Prisma.EnumBrandFieldRefInput<$PrismaModel>
+  in?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBrandWithAggregatesFilter<$PrismaModel> | $Enums.Brand
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBrandFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBrandFilter<$PrismaModel>
+}
+
+export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalWithAggregatesFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _sum?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _min?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _max?: Prisma.NestedDecimalFilter<$PrismaModel>
+}
+
+export type EnumGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+}
+
+export type EnumStyleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Style | Prisma.EnumStyleFieldRefInput<$PrismaModel>
+  in?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStyleWithAggregatesFilter<$PrismaModel> | $Enums.Style
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStyleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStyleFilter<$PrismaModel>
+}
+
+export type EnumMaterialWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Material | Prisma.EnumMaterialFieldRefInput<$PrismaModel>
+  in?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMaterialWithAggregatesFilter<$PrismaModel> | $Enums.Material
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMaterialFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMaterialFilter<$PrismaModel>
+}
+
+export type EnumColorWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Color | Prisma.EnumColorFieldRefInput<$PrismaModel>
+  in?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumColorWithAggregatesFilter<$PrismaModel> | $Enums.Color
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumColorFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumColorFilter<$PrismaModel>
+}
+
+export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -141,6 +278,143 @@ export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedStringFilter<$PrismaModel>
   _max?: Prisma.NestedStringFilter<$PrismaModel>
+}
+
+export type NestedEnumBrandFilter<$PrismaModel = never> = {
+  equals?: $Enums.Brand | Prisma.EnumBrandFieldRefInput<$PrismaModel>
+  in?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBrandFilter<$PrismaModel> | $Enums.Brand
+}
+
+export type NestedDecimalFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type NestedEnumGenderFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGenderFilter<$PrismaModel> | $Enums.Gender
+}
+
+export type NestedEnumStyleFilter<$PrismaModel = never> = {
+  equals?: $Enums.Style | Prisma.EnumStyleFieldRefInput<$PrismaModel>
+  in?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStyleFilter<$PrismaModel> | $Enums.Style
+}
+
+export type NestedEnumMaterialFilter<$PrismaModel = never> = {
+  equals?: $Enums.Material | Prisma.EnumMaterialFieldRefInput<$PrismaModel>
+  in?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMaterialFilter<$PrismaModel> | $Enums.Material
+}
+
+export type NestedEnumColorFilter<$PrismaModel = never> = {
+  equals?: $Enums.Color | Prisma.EnumColorFieldRefInput<$PrismaModel>
+  in?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumColorFilter<$PrismaModel> | $Enums.Color
+}
+
+export type NestedDateTimeFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeFilter<$PrismaModel> | Date | string
+}
+
+export type NestedEnumBrandWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Brand | Prisma.EnumBrandFieldRefInput<$PrismaModel>
+  in?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Brand[] | Prisma.ListEnumBrandFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumBrandWithAggregatesFilter<$PrismaModel> | $Enums.Brand
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumBrandFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumBrandFilter<$PrismaModel>
+}
+
+export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  notIn?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>
+  lt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  lte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gt?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDecimalWithAggregatesFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _sum?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _min?: Prisma.NestedDecimalFilter<$PrismaModel>
+  _max?: Prisma.NestedDecimalFilter<$PrismaModel>
+}
+
+export type NestedEnumGenderWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Gender | Prisma.EnumGenderFieldRefInput<$PrismaModel>
+  in?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Gender[] | Prisma.ListEnumGenderFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGenderWithAggregatesFilter<$PrismaModel> | $Enums.Gender
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGenderFilter<$PrismaModel>
+}
+
+export type NestedEnumStyleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Style | Prisma.EnumStyleFieldRefInput<$PrismaModel>
+  in?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Style[] | Prisma.ListEnumStyleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStyleWithAggregatesFilter<$PrismaModel> | $Enums.Style
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStyleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStyleFilter<$PrismaModel>
+}
+
+export type NestedEnumMaterialWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Material | Prisma.EnumMaterialFieldRefInput<$PrismaModel>
+  in?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Material[] | Prisma.ListEnumMaterialFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMaterialWithAggregatesFilter<$PrismaModel> | $Enums.Material
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMaterialFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMaterialFilter<$PrismaModel>
+}
+
+export type NestedEnumColorWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.Color | Prisma.EnumColorFieldRefInput<$PrismaModel>
+  in?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  notIn?: $Enums.Color[] | Prisma.ListEnumColorFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumColorWithAggregatesFilter<$PrismaModel> | $Enums.Color
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumColorFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumColorFilter<$PrismaModel>
+}
+
+export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
 

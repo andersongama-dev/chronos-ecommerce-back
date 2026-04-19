@@ -9,7 +9,58 @@
 * 🟢 You can import this file directly.
 */
 
+export const Brand = {
+  ROLEX: 'ROLEX',
+  CASIO: 'CASIO',
+  SEIKO: 'SEIKO',
+  OMEGA: 'OMEGA',
+  TAG_HEUER: 'TAG_HEUER',
+  TISSOT: 'TISSOT'
+} as const
+
+export type Brand = (typeof Brand)[keyof typeof Brand]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const Gender = {
+  MEN: 'MEN',
+  WOMEN: 'WOMEN',
+  UNISEX: 'UNISEX'
+} as const
+
+export type Gender = (typeof Gender)[keyof typeof Gender]
+
+
+export const Style = {
+  CASUAL: 'CASUAL',
+  SPORT: 'SPORT',
+  LUXURY: 'LUXURY',
+  CLASSIC: 'CLASSIC',
+  DIVER: 'DIVER'
+} as const
+
+export type Style = (typeof Style)[keyof typeof Style]
+
+
+export const Material = {
+  STAINLESS_STEEL: 'STAINLESS_STEEL',
+  GOLD: 'GOLD',
+  TITANIUM: 'TITANIUM',
+  CERAMIC: 'CERAMIC',
+  LEATHER: 'LEATHER',
+  RUBBER: 'RUBBER',
+  METAL: 'METAL',
+  NYLON: 'NYLON'
+} as const
+
+export type Material = (typeof Material)[keyof typeof Material]
+
+
+export const Color = {
+  BLACK: 'BLACK',
+  BROWN: 'BROWN',
+  SILVER: 'SILVER',
+  GOLD: 'GOLD',
+  BLUE: 'BLUE'
+} as const
+
+export type Color = (typeof Color)[keyof typeof Color]

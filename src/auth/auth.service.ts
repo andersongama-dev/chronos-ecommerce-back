@@ -41,7 +41,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
-      const user = await this.prisma.users.create({
+      const user = await this.prisma.user.create({
         data: {
           name,
           email,
@@ -79,7 +79,7 @@ export class AuthService {
   async signIn(dto: SignInDto): Promise<AuthResponse> {
     const { email, password } = dto;
 
-    const user = await this.prisma.users.findUnique({
+    const user = await this.prisma.user.findUnique({
       where: { email },
     });
 

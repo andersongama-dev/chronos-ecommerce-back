@@ -8,9 +8,67 @@ datasource db {
   provider = "postgresql"
 }
 
-model Users {
-  id       Int    @id @default(autoincrement())
+model User {
+  id       Int    @id(map: "Users_pkey") @default(autoincrement())
   name     String
-  email    String @unique
-  password String 
+  email    String @unique(map: "Users_email_key")
+  password String
+}
+
+model Watch {
+  id            Int      @id @default(autoincrement())
+  name          String
+  brand         Brand
+  price         Decimal  @db.Decimal(10, 2)
+  gender        Gender
+  style         Style
+  caseMaterial  Material
+  strapMaterial Material
+  strapColor    Color
+  imageUrl      String
+  slug          String   @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+enum Brand {
+  ROLEX
+  CASIO
+  SEIKO
+  OMEGA
+  TAG_HEUER
+  TISSOT
+}
+
+enum Gender {
+  MEN
+  WOMEN
+  UNISEX
+}
+
+enum Style {
+  CASUAL
+  SPORT
+  LUXURY
+  CLASSIC
+  DIVER
+}
+
+enum Material {
+  STAINLESS_STEEL
+  GOLD
+  TITANIUM
+  CERAMIC
+  LEATHER
+  RUBBER
+  METAL
+  NYLON
+}
+
+enum Color {
+  BLACK
+  BROWN
+  SILVER
+  GOLD
+  BLUE
 }
