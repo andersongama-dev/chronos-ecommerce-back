@@ -1,48 +1,83 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { SingInDto } from './dto/sing-in-auth.dto';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { CreateUserDto } from './dto/create-auth.dto';
+import { SignInDto } from './dto/sing-in-auth.dto';
 import { PrismaService } from 'src/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { Prisma } from 'src/generated/prisma/client';
+
+type AuthResponse = {
+  accessToken: string;
+};
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private readonly jwtService: JwtService) { }
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly jwtService: JwtService,
+  ) { }
 
-  async create(createAuthDto: CreateAuthDto) {
-  const { name, email, password, confirmPassword } = createAuthDto;
+  /**
+   * Register a new user.
+   * - Validates password confirmation
+   * - Hashes password using bcrypt
+   * - Relies on database constraint for email uniqueness
+   *
+   * @param dto Registration payload
+   * @returns JWT access token
+   * @throws BadRequestException for invalid input or duplicate email
+   */
+  async create(dto: CreateUserDto): Promise<AuthResponse> {
+    const { name, email, password, confirmPassword } = dto;
 
-  if (!name || !email || !password || confirmPassword !== password) {
-    throw new UnauthorizedException('Invalid credentials');
+    if (password !== confirmPassword) {
+      throw new BadRequestException('Passwords do not match');
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    try {
+      const user = await this.prisma.users.create({
+        data: {
+          name,
+          email,
+          password: hashedPassword,
+        },
+      });
+
+      const payload = { sub: user.id, email: user.email };
+
+      return {
+        accessToken: this.jwtService.sign(payload),
+      };
+    } catch (error) {
+      // Unique constraint violation (email already exists)
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === 'P2002'
+      ) {
+        throw new BadRequestException('Email already in use');
+      }
+
+      throw error;
+    }
   }
 
-  const userExists = await this.prisma.users.findUnique({
-    where: { email },
-  });
-
-  if (userExists) {
-    throw new UnauthorizedException('Invalid credentials');
-  }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const user = await this.prisma.users.create({
-    data: {
-      name,
-      email,
-      password: hashedPassword,
-    },
-  });
-
-  const payload = { email: user.email, sub: user.id };
-
-  return {
-    accessToken: this.jwtService.sign(payload),
-  };
-}
-
-  async signIn(singInDto: SingInDto) {
-    const { email, password } = singInDto
+  /**
+   * Authenticate a user.
+   * - Validates email and password
+   * - Returns JWT if credentials are valid
+   *
+   * @param dto Login payload
+   * @returns JWT access token
+   * @throws UnauthorizedException for invalid credentials
+   */
+  async signIn(dto: SignInDto): Promise<AuthResponse> {
+    const { email, password } = dto;
 
     const user = await this.prisma.users.findUnique({
       where: { email },
@@ -52,16 +87,19 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const passwordIsValid = await bcrypt.compare(
+    const isPasswordValid = await bcrypt.compare(
       password,
       user.password,
     );
 
-    if (!passwordIsValid) {
+    if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload = { email: user.email, sub: user.id };
-    return { accessToken: this.jwtService.sign(payload) }
+    const payload = { sub: user.id, email: user.email };
+
+    return {
+      accessToken: this.jwtService.sign(payload),
+    };
   }
 }
