@@ -27,3 +27,13 @@ export type User = Prisma.UserModel
  * 
  */
 export type Watch = Prisma.WatchModel
+/**
+ * Model Cart
+ * 
+ */
+export type Cart = Prisma.CartModel
+/**
+ * Model CartItem
+ * 
+ */
+export type CartItem = Prisma.CartItemModel
