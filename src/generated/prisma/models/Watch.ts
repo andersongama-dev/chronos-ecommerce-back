@@ -284,6 +284,7 @@ export type WatchWhereInput = {
   slug?: Prisma.StringFilter<"Watch"> | string
   createdAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
+  cartItems?: Prisma.CartItemListRelationFilter
 }
 
 export type WatchOrderByWithRelationInput = {
@@ -300,6 +301,7 @@ export type WatchOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  cartItems?: Prisma.CartItemOrderByRelationAggregateInput
 }
 
 export type WatchWhereUniqueInput = Prisma.AtLeast<{
@@ -319,6 +321,7 @@ export type WatchWhereUniqueInput = Prisma.AtLeast<{
   imageUrl?: Prisma.StringFilter<"Watch"> | string
   createdAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Watch"> | Date | string
+  cartItems?: Prisma.CartItemListRelationFilter
 }, "id" | "slug">
 
 export type WatchOrderByWithAggregationInput = {
@@ -374,6 +377,7 @@ export type WatchCreateInput = {
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  cartItems?: Prisma.CartItemCreateNestedManyWithoutWatchInput
 }
 
 export type WatchUncheckedCreateInput = {
@@ -390,6 +394,7 @@ export type WatchUncheckedCreateInput = {
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  cartItems?: Prisma.CartItemUncheckedCreateNestedManyWithoutWatchInput
 }
 
 export type WatchUpdateInput = {
@@ -405,6 +410,7 @@ export type WatchUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cartItems?: Prisma.CartItemUpdateManyWithoutWatchNestedInput
 }
 
 export type WatchUncheckedUpdateInput = {
@@ -421,6 +427,7 @@ export type WatchUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cartItems?: Prisma.CartItemUncheckedUpdateManyWithoutWatchNestedInput
 }
 
 export type WatchCreateManyInput = {
@@ -528,6 +535,11 @@ export type WatchSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
 }
 
+export type WatchScalarRelationFilter = {
+  is?: Prisma.WatchWhereInput
+  isNot?: Prisma.WatchWhereInput
+}
+
 export type EnumBrandFieldUpdateOperationsInput = {
   set?: $Enums.Brand
 }
@@ -560,6 +572,127 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type WatchCreateNestedOneWithoutCartItemsInput = {
+  create?: Prisma.XOR<Prisma.WatchCreateWithoutCartItemsInput, Prisma.WatchUncheckedCreateWithoutCartItemsInput>
+  connectOrCreate?: Prisma.WatchCreateOrConnectWithoutCartItemsInput
+  connect?: Prisma.WatchWhereUniqueInput
+}
+
+export type WatchUpdateOneRequiredWithoutCartItemsNestedInput = {
+  create?: Prisma.XOR<Prisma.WatchCreateWithoutCartItemsInput, Prisma.WatchUncheckedCreateWithoutCartItemsInput>
+  connectOrCreate?: Prisma.WatchCreateOrConnectWithoutCartItemsInput
+  upsert?: Prisma.WatchUpsertWithoutCartItemsInput
+  connect?: Prisma.WatchWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WatchUpdateToOneWithWhereWithoutCartItemsInput, Prisma.WatchUpdateWithoutCartItemsInput>, Prisma.WatchUncheckedUpdateWithoutCartItemsInput>
+}
+
+export type WatchCreateWithoutCartItemsInput = {
+  name: string
+  brand: $Enums.Brand
+  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  gender: $Enums.Gender
+  style: $Enums.Style
+  caseMaterial: $Enums.Material
+  strapMaterial: $Enums.Material
+  strapColor: $Enums.Color
+  imageUrl: string
+  slug: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type WatchUncheckedCreateWithoutCartItemsInput = {
+  id?: number
+  name: string
+  brand: $Enums.Brand
+  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  gender: $Enums.Gender
+  style: $Enums.Style
+  caseMaterial: $Enums.Material
+  strapMaterial: $Enums.Material
+  strapColor: $Enums.Color
+  imageUrl: string
+  slug: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type WatchCreateOrConnectWithoutCartItemsInput = {
+  where: Prisma.WatchWhereUniqueInput
+  create: Prisma.XOR<Prisma.WatchCreateWithoutCartItemsInput, Prisma.WatchUncheckedCreateWithoutCartItemsInput>
+}
+
+export type WatchUpsertWithoutCartItemsInput = {
+  update: Prisma.XOR<Prisma.WatchUpdateWithoutCartItemsInput, Prisma.WatchUncheckedUpdateWithoutCartItemsInput>
+  create: Prisma.XOR<Prisma.WatchCreateWithoutCartItemsInput, Prisma.WatchUncheckedCreateWithoutCartItemsInput>
+  where?: Prisma.WatchWhereInput
+}
+
+export type WatchUpdateToOneWithWhereWithoutCartItemsInput = {
+  where?: Prisma.WatchWhereInput
+  data: Prisma.XOR<Prisma.WatchUpdateWithoutCartItemsInput, Prisma.WatchUncheckedUpdateWithoutCartItemsInput>
+}
+
+export type WatchUpdateWithoutCartItemsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  brand?: Prisma.EnumBrandFieldUpdateOperationsInput | $Enums.Brand
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  style?: Prisma.EnumStyleFieldUpdateOperationsInput | $Enums.Style
+  caseMaterial?: Prisma.EnumMaterialFieldUpdateOperationsInput | $Enums.Material
+  strapMaterial?: Prisma.EnumMaterialFieldUpdateOperationsInput | $Enums.Material
+  strapColor?: Prisma.EnumColorFieldUpdateOperationsInput | $Enums.Color
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type WatchUncheckedUpdateWithoutCartItemsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  brand?: Prisma.EnumBrandFieldUpdateOperationsInput | $Enums.Brand
+  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
+  style?: Prisma.EnumStyleFieldUpdateOperationsInput | $Enums.Style
+  caseMaterial?: Prisma.EnumMaterialFieldUpdateOperationsInput | $Enums.Material
+  strapMaterial?: Prisma.EnumMaterialFieldUpdateOperationsInput | $Enums.Material
+  strapColor?: Prisma.EnumColorFieldUpdateOperationsInput | $Enums.Color
+  imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type WatchCountOutputType
+ */
+
+export type WatchCountOutputType = {
+  cartItems: number
+}
+
+export type WatchCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  cartItems?: boolean | WatchCountOutputTypeCountCartItemsArgs
+}
+
+/**
+ * WatchCountOutputType without action
+ */
+export type WatchCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WatchCountOutputType
+   */
+  select?: Prisma.WatchCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * WatchCountOutputType without action
+ */
+export type WatchCountOutputTypeCountCartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CartItemWhereInput
+}
 
 
 export type WatchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -576,6 +709,8 @@ export type WatchSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   slug?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  cartItems?: boolean | Prisma.Watch$cartItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.WatchCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["watch"]>
 
 export type WatchSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -627,10 +762,18 @@ export type WatchSelectScalar = {
 }
 
 export type WatchOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "brand" | "price" | "gender" | "style" | "caseMaterial" | "strapMaterial" | "strapColor" | "imageUrl" | "slug" | "createdAt" | "updatedAt", ExtArgs["result"]["watch"]>
+export type WatchInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  cartItems?: boolean | Prisma.Watch$cartItemsArgs<ExtArgs>
+  _count?: boolean | Prisma.WatchCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type WatchIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type WatchIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $WatchPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Watch"
-  objects: {}
+  objects: {
+    cartItems: Prisma.$CartItemPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
@@ -1039,6 +1182,7 @@ readonly fields: WatchFieldRefs;
  */
 export interface Prisma__WatchClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  cartItems<T extends Prisma.Watch$cartItemsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Watch$cartItemsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CartItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1098,6 +1242,10 @@ export type WatchFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * Filter, which Watch to fetch.
    */
   where: Prisma.WatchWhereUniqueInput
@@ -1116,6 +1264,10 @@ export type WatchFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * Filter, which Watch to fetch.
    */
   where: Prisma.WatchWhereUniqueInput
@@ -1133,6 +1285,10 @@ export type WatchFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Watch
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
   /**
    * Filter, which Watch to fetch.
    */
@@ -1182,6 +1338,10 @@ export type WatchFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * Filter, which Watch to fetch.
    */
   where?: Prisma.WatchWhereInput
@@ -1229,6 +1389,10 @@ export type WatchFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Watch
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
   /**
    * Filter, which Watches to fetch.
    */
@@ -1278,6 +1442,10 @@ export type WatchCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * The data needed to create a Watch.
    */
   data: Prisma.XOR<Prisma.WatchCreateInput, Prisma.WatchUncheckedCreateInput>
@@ -1325,6 +1493,10 @@ export type WatchUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the Watch
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
   /**
    * The data needed to update a Watch.
    */
@@ -1392,6 +1564,10 @@ export type WatchUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * The filter to search for the Watch to update in case it exists.
    */
   where: Prisma.WatchWhereUniqueInput
@@ -1418,6 +1594,10 @@ export type WatchDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
+  /**
    * Filter which Watch to delete.
    */
   where: Prisma.WatchWhereUniqueInput
@@ -1438,6 +1618,30 @@ export type WatchDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
 }
 
 /**
+ * Watch.cartItems
+ */
+export type Watch$cartItemsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CartItem
+   */
+  select?: Prisma.CartItemSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CartItem
+   */
+  omit?: Prisma.CartItemOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CartItemInclude<ExtArgs> | null
+  where?: Prisma.CartItemWhereInput
+  orderBy?: Prisma.CartItemOrderByWithRelationInput | Prisma.CartItemOrderByWithRelationInput[]
+  cursor?: Prisma.CartItemWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CartItemScalarFieldEnum | Prisma.CartItemScalarFieldEnum[]
+}
+
+/**
  * Watch without action
  */
 export type WatchDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1449,4 +1653,8 @@ export type WatchDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Watch
    */
   omit?: Prisma.WatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WatchInclude<ExtArgs> | null
 }
